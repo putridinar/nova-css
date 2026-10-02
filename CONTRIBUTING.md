@@ -10,7 +10,7 @@ Please be respectful and inclusive in all interactions. We welcome contributors 
 
 ```bash
 # Clone the repository
-git clone https://github.com/nova-css/nova-css.git
+git clone https://github.com/putridinar/nova-css.git
 cd nova-css
 
 # Install dependencies
