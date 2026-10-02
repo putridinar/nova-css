@@ -40,7 +40,7 @@
   /* Button Variants */
   .nova-btn-primary {
     background-color: var(--nova-color-primary);
-    color: white;
+    color: white !important;
     border-color: var(--nova-color-primary);
   }
   .nova-btn-primary:hover { background-color: var(--nova-primary-600); border-color: var(--nova-primary-600); }
@@ -48,21 +48,21 @@
 
   .nova-btn-secondary {
     background-color: var(--nova-color-secondary);
-    color: white;
+    color: white !important;
     border-color: var(--nova-color-secondary);
   }
   .nova-btn-secondary:hover { background-color: var(--nova-secondary-600); border-color: var(--nova-secondary-600); }
 
   .nova-btn-success {
     background-color: var(--nova-color-success);
-    color: white;
+    color: white !important;
     border-color: var(--nova-color-success);
   }
   .nova-btn-success:hover { background-color: var(--nova-success-600); border-color: var(--nova-success-600); }
 
   .nova-btn-danger {
     background-color: var(--nova-color-danger);
-    color: white;
+    color: white !important;
     border-color: var(--nova-color-danger);
   }
   .nova-btn-danger:hover { background-color: var(--nova-danger-600); border-color: var(--nova-danger-600); }
