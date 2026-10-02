@@ -1,5 +1,5 @@
 {
-  "name": "nova-css",
+  "name": "@putridinar/nova-css",
   "version": "1.0.0",
   "description": "Modern, lightweight, utility-first CSS framework with design tokens, accessible components, and dark mode",
   "type": "module",

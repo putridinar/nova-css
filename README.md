@@ -2,7 +2,7 @@
 
 **Modern, lightweight, utility-first CSS framework with design tokens, accessible components, and dark mode.**
 
-[![npm version](https://img.shields.io/npm/v/nova-css.svg)](https://www.npmjs.com/package/nova-css)
+[![npm version](https://img.shields.io/npm/v/%40putridinar%2Fnova-css.svg)](https://www.npmjs.com/package/@putridinar/nova-css)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](http://makeapullrequest.com)
 
@@ -23,13 +23,13 @@
 
 ```bash
 # npm
-npm install nova-css
+npm install @putridinar/nova-css
 
 # pnpm
-pnpm add nova-css
+pnpm add @putridinar/nova-css
 
 # yarn
-yarn add nova-css
+yarn add @putridinar/nova-css
 ```
 
 ## 🚀 Quick Start
@@ -38,14 +38,14 @@ yarn add nova-css
 
 ```css
 /* Import everything */
-@import "nova-css";
+@import "@putridinar/nova-css";
 
 /* Or import individual layers */
-@import "nova-css/reset";
-@import "nova-css/tokens";
-@import "nova-css/utilities";
-@import "nova-css/components";
-@import "nova-css/border-beam";
+@import "@putridinar/nova-css/reset";
+@import "@putridinar/nova-css/tokens";
+@import "@putridinar/nova-css/utilities";
+@import "@putridinar/nova-css/components";
+@import "@putridinar/nova-css/border-beam";
 ```
 
 ### HTML Usage
@@ -54,7 +54,7 @@ yarn add nova-css
 <!DOCTYPE html>
 <html lang="en" data-theme="light">
 <head>
-  <link rel="stylesheet" href="node_modules/nova-css/dist/index.css">
+  <link rel="stylesheet" href="node_modules/@putridinar/nova-css/dist/index.css">
 </head>
 <body>
   <div class="nova-container nova-py-8">
@@ -70,7 +70,7 @@ yarn add nova-css
 ### React Components
 
 ```tsx
-import { BorderBeam } from 'nova-css/react';
+import { BorderBeam } from '@putridinar/nova-css/react';
 
 function App() {
   return (
@@ -249,17 +249,17 @@ CSS Layers ensure proper cascade control. Your custom CSS always wins.
 
 ```javascript
 // Main CSS
-import 'nova-css';
+import '@putridinar/nova-css';
 
 // Individual layers
-import 'nova-css/reset';
-import 'nova-css/tokens';
-import 'nova-css/utilities';
-import 'nova-css/components';
-import 'nova-css/border-beam';
+import '@putridinar/nova-css/reset';
+import '@putridinar/nova-css/tokens';
+import '@putridinar/nova-css/utilities';
+import '@putridinar/nova-css/components';
+import '@putridinar/nova-css/border-beam';
 
 // React components
-import { BorderBeam } from 'nova-css/react';
+import { BorderBeam } from '@putridinar/nova-css/react';
 ```
 
 ## 🌐 Browser Support
@@ -271,7 +271,7 @@ import { BorderBeam } from 'nova-css/react';
 
 ## 📚 Documentation
 
-Full documentation available at [nova-css.dev](https://nova-css.dev)
+Full documentation available at [nova-css](https://my-novacss.vercel.app)
 
 - [Getting Started](https://nova-css.dev/installation)
 - [Design Tokens](https://nova-css.dev/colors)
@@ -288,7 +288,7 @@ Contributions are welcome! See [CONTRIBUTING.md](./CONTRIBUTING.md) for details.
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/nova-css.git
+git clone https://github.com/putridinar/nova-css.git
 cd nova-css
 
 # Install dependencies
@@ -303,7 +303,7 @@ npm run build:framework
 
 ## 📄 License
 
-MIT © [Your Name](https://github.com/yourusername)
+MIT © [Putri Dinar](https://github.com/putridinar)
 
 ## 🙏 Acknowledgments
 
@@ -313,10 +313,10 @@ MIT © [Your Name](https://github.com/yourusername)
 
 ## 📞 Contact
 
-- Twitter: [@yourusername](https://twitter.com/yourusername)
-- GitHub: [@yourusername](https://github.com/yourusername)
-- Website: [nova-css.dev](https://nova-css.dev)
+- Twitter: [@putridinar](https://twitter.com/putridinar)
+- GitHub: [@putridinar](https://github.com/putridinar)
+- Website: [nova-css.dev](https://my-novacss.vercel.app)
 
 ---
 
-**Made with ❤️ by [Your Name]**
+**Made with ❤️ by Putri Dinar**
