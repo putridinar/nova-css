@@ -7,6 +7,7 @@ import {
   ArrowLeft, ArrowRight, Plus, Minus, Search,
   Github, Twitter, Mail, Heart, Star
 } from 'lucide-react';
+// @ts-expect-error CSS is handled by the bundler; TypeScript has no CSS module declaration.
 import './nova/index.css';
 import { BorderBeam } from './nova/BorderBeam';
 
@@ -210,15 +211,17 @@ function SidebarContent({ onClose, showCloseButton = false }: { onClose: () => v
   );
 }
 // Header Component
-function Header({ onMenuClick }: { onMenuClick: () => void }) {
+function Header({ onMenuClick, showMenu = true }: { onMenuClick: () => void; showMenu?: boolean }) {
   const { theme, setTheme } = useTheme();
 
   return (
     <header className="nova-navbar nova-sticky nova-top-0" style={{ zIndex: 30 }}>
       <div className="nova-flex nova-items-center nova-gap-3">
-        <button onClick={onMenuClick} className="nova-btn nova-btn-ghost nova-btn-sm lg:nova-hidden">
-          <Menu size={20} />
-        </button>
+        {showMenu && (
+          <button onClick={onMenuClick} className="nova-btn nova-btn-ghost nova-btn-sm lg:nova-hidden">
+            <Menu size={20} />
+          </button>
+        )}
         <Link to="/" className="nova-font-bold nova-text-lg nova-flex nova-items-center nova-gap-2">
           <div className="nova-flex nova-items-center nova-justify-center" style={{ width: 28, height: 28, background: 'linear-gradient(135deg, var(--nova-primary-500), var(--nova-secondary-500))', borderRadius: 'var(--nova-radius-md)' }}>
             <span style={{ color: 'white', fontWeight: 700, fontSize: 12 }}>N</span>
@@ -260,7 +263,7 @@ function CodeBlock({ code, language = 'html' }: { code: string; language?: strin
   };
 
   return (
-    <div className="nova-relative nova-rounded-lg nova-overflow-hidden nova-my-4">
+    <div className="nova-relative nova-rounded-lg nova-overflow-hidden nova-my-4" style={{ backgroundColor: '#171717' }}>
       <div className="nova-flex nova-items-center nova-justify-between nova-px-4 nova-py-2" style={{ backgroundColor: 'var(--nova-neutral-800)' }}>
         <span className="nova-text-xs" style={{ color: 'var(--nova-neutral-400)' }}>{language}</span>
         <button onClick={handleCopy} className="nova-btn nova-btn-ghost nova-btn-xs nova-flex nova-items-center nova-gap-1" style={{ color: 'var(--nova-neutral-400)' }}>
@@ -270,6 +273,40 @@ function CodeBlock({ code, language = 'html' }: { code: string; language?: strin
       <pre className="nova-code-block nova-rounded-none nova-m-0">
         <code>{code}</code>
       </pre>
+    </div>
+  );
+}
+
+function InstallCommand({ command }: { command: string }) {
+  const [copyStatus, setCopyStatus] = useState<'idle' | 'copied' | 'failed'>('idle');
+
+  const handleCopy = async () => {
+    try {
+      await navigator.clipboard.writeText(command);
+      setCopyStatus('copied');
+    } catch {
+      setCopyStatus('failed');
+    }
+  };
+
+  return (
+    <div className="nova-inline-flex nova-items-center nova-gap-4 nova-p-2 nova-pl-4 nova-rounded-lg nova-border nova-mb-6" style={{ backgroundColor: 'var(--nova-color-surface)', borderColor: 'var(--nova-color-border)' }}>
+      <code className="nova-font-mono nova-text-sm">{command}</code>
+      <button
+        type="button"
+        onClick={handleCopy}
+        aria-label={copyStatus === 'copied' ? 'Command copied' : copyStatus === 'failed' ? 'Copy failed' : 'Copy install command'}
+        className="nova-btn nova-btn-ghost nova-btn-sm nova-flex nova-items-center nova-gap-2"
+      >
+        {copyStatus === 'copied'
+          ? <><Check size={14} /> Copied</>
+          : copyStatus === 'failed'
+            ? <><Copy size={14} /> Copy failed</>
+            : <><Copy size={14} /> Copy</>}
+      </button>
+      <span className="nova-sr-only" aria-live="polite">
+        {copyStatus === 'failed' ? 'Could not copy command. Copy it manually.' : ''}
+      </span>
     </div>
   );
 }
@@ -306,11 +343,7 @@ function HomePage() {
   return (
     <div>
       <div className="nova-text-center nova-py-12 md:nova-py-20">
-        <div className="nova-inline-flex nova-items-center nova-gap-2 nova-badge nova-badge-primary nova-mb-6">
-          <span>v1.0.0</span>
-          <span>•</span>
-          <span>Production Ready</span>
-        </div>
+        <InstallCommand command="npm i @putridinar/nova-css" />
         <h1 className="nova-text-4xl md:nova-text-5xl lg:nova-text-6xl nova-font-bold nova-tracking-tight nova-mb-4">
           Build faster with<br />
           <span style={{ background: 'linear-gradient(135deg, var(--nova-primary-500), var(--nova-secondary-500))', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
@@ -399,13 +432,13 @@ function HomePage() {
         <CodeBlock 
           language="bash"
           code={`# Install via npm
-npm install nova-css
+npm install @putridinar/nova-css
 
 # Or with pnpm
-pnpm add nova-css
+pnpm add @putridinar/nova-css
 
 # Import in your CSS
-@import "nova-css";`}
+@import "@putridinar/nova-css";`}
         />
       </div>
     </div>
@@ -420,33 +453,33 @@ function InstallationPage() {
 
       <h2 className="nova-text-xl nova-font-semibold nova-mb-3">Package Manager</h2>
       <CodeBlock language="bash" code={`# npm
-npm install nova-css
+npm install @putridinar/nova-css
 
 # pnpm
-pnpm add nova-css
+pnpm add @putridinar/nova-css
 
 # yarn
-yarn add nova-css`} />
+yarn add @putridinar/nova-css`} />
 
       <h2 className="nova-text-xl nova-font-semibold nova-mt-8 nova-mb-3">CDN</h2>
-      <CodeBlock language="html" code={`<link rel="stylesheet" href="https://unpkg.com/nova-css@latest/dist/nova.min.css" />`} />
+      <CodeBlock language="html" code={`<link rel="stylesheet" href="https://unpkg.com/@putridinar/nova-css@latest/dist/index.css" />`} />
 
       <h2 className="nova-text-xl nova-font-semibold nova-mt-8 nova-mb-3">Import in CSS</h2>
       <CodeBlock language="css" code={`/* Import everything */
-@import "nova-css";
+@import "@putridinar/nova-css";
 
 /* Or import individual layers */
-@import "nova-css/reset";
-@import "nova-css/tokens";
-@import "nova-css/utilities";
-@import "nova-css/components";`} />
+@import "@putridinar/nova-css/reset";
+@import "@putridinar/nova-css/tokens";
+@import "@putridinar/nova-css/utilities";
+@import "@putridinar/nova-css/components";`} />
 
       <h2 className="nova-text-xl nova-font-semibold nova-mt-8 nova-mb-3">Import in JavaScript</h2>
       <CodeBlock language="js" code={`// In your main entry file
-import "nova-css";
+import "@putridinar/nova-css";
 
 // Or with React components
-import { Button, Card, Modal } from "@nova-ui/react";`} />
+import { BorderBeam } from "@putridinar/nova-css/react";`} />
 
       <div className="nova-alert nova-alert-info nova-mt-8">
         <Info size={18} />
@@ -471,7 +504,7 @@ function QuickStartPage() {
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>My App</title>
-  <link rel="stylesheet" href="nova-css">
+  <link rel="stylesheet" href="node_modules/@putridinar/nova-css/dist/index.css">
 </head>
 <body>
   <div class="nova-container nova-py-8">
@@ -1137,7 +1170,7 @@ function BorderBeamPage() {
 </div>`} />
 
       <h2 className="nova-text-xl nova-font-semibold nova-mt-8 nova-mb-3">React Component</h2>
-      <CodeBlock language="tsx" code={`import { BorderBeam } from 'nova-css';
+      <CodeBlock language="tsx" code={`import { BorderBeam } from '@putridinar/nova-css/react';
 
 function MyComponent() {
   return (
@@ -1949,7 +1982,7 @@ function Layout() {
         <div 
           className="nova-absolute nova-top-0 nova-left-0 nova-h-screen nova-overflow-y-auto"
           style={{ 
-            width: 280, 
+            width: 'min(16rem, 85vw)',
             backgroundColor: 'var(--nova-color-background)',
             borderRight: '1px solid var(--nova-color-border)',
             animation: 'nova-slide-right 0.2s ease-out'
@@ -1999,15 +2032,15 @@ function Layout() {
       <div className="nova-hidden lg:nova-flex" style={{ minHeight: '100vh' }}>
         {/* Desktop sidebar - always visible, normal flow */}
         <div 
-          className="nova-sticky nova-top-0 nova-h-screen nova-overflow-y-auto"
-          style={{ width: 280, flexShrink: 0, borderRight: '1px solid var(--nova-color-border)', backgroundColor: 'var(--nova-color-background)' }}
+          className="nova-sticky nova-top-0 nova-h-screen"
+          style={{ width: '16rem', flex: '0 0 16rem', borderRight: '1px solid var(--nova-color-border)', backgroundColor: 'var(--nova-color-background)' }}
         >
           <SidebarContent onClose={() => {}} />
         </div>
 
         {/* Main content area */}
         <main className="nova-flex-1 nova-min-w-0">
-          <Header onMenuClick={() => setSidebarOpen(true)} />
+          <Header onMenuClick={() => setSidebarOpen(true)} showMenu={false} />
           <div className="nova-p-6 md:nova-p-8 lg:nova-p-10 nova-max-w-4xl">
             <Routes currentPath={path}>
               <Route path="/" element={<HomePage />} currentPath={path} />

@@ -746,19 +746,25 @@
   .nova-sidebar {
     display: flex;
     flex-direction: column;
-    width: 16rem;
+    width: 100%;
     height: 100%;
     background-color: var(--nova-color-background);
-    border-inline-end: 1px solid var(--nova-color-border);
-    overflow-y: auto;
+    overflow: hidden;
   }
   .nova-sidebar-header {
+    position: sticky;
+    inset-block-start: 0;
+    z-index: 1;
+    flex: 0 0 auto;
     padding: var(--nova-space-4) var(--nova-space-4);
+    background-color: var(--nova-color-background);
     border-block-end: 1px solid var(--nova-color-border);
   }
   .nova-sidebar-nav {
     flex: 1;
+    min-height: 0;
     padding: var(--nova-space-2);
+    overflow-y: auto;
   }
   .nova-sidebar-item {
     display: flex;
