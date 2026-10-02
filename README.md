@@ -273,14 +273,14 @@ import { BorderBeam } from '@putridinar/nova-css/react';
 
 Full documentation available at [nova-css](https://my-novacss.vercel.app)
 
-- [Getting Started](https://nova-css.dev/installation)
-- [Design Tokens](https://nova-css.dev/colors)
-- [Utilities](https://nova-css.dev/utilities/layout)
-- [Components](https://nova-css.dev/components/button)
-- [Border Beam](https://nova-css.dev/border-beam)
-- [Dark Mode](https://nova-css.dev/dark-mode)
-- [Theming](https://nova-css.dev/theming)
-- [Playground](https://nova-css.dev/playground)
+- [Getting Started](https://my-novacss.vercel.app/installation)
+- [Design Tokens](https://my-novacss.vercel.app/colors)
+- [Utilities](https://my-novacss.vercel.app/utilities/layout)
+- [Components](https://my-novacss.vercel.app/components/button)
+- [Border Beam](https://my-novacss.vercel.app/border-beam)
+- [Dark Mode](https://my-novacss.vercel.app/dark-mode)
+- [Theming](https://my-novacss.vercel.app/theming)
+- [Playground](https://my-novacss.vercel.app/playground)
 
 ## 🤝 Contributing
 
@@ -315,7 +315,7 @@ MIT © [Putri Dinar](https://github.com/putridinar)
 
 - Twitter: [@putridinar](https://twitter.com/putridinar)
 - GitHub: [@putridinar](https://github.com/putridinar)
-- Website: [nova-css.dev](https://my-novacss.vercel.app)
+- Website: [my-NovaCss](https://my-novacss.vercel.app)
 
 ---
 
