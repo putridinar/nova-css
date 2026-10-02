@@ -1,0 +1,62 @@
+/* ============================================
+   NOVA CSS v1.0.0
+   Modern, lightweight, utility-first CSS framework
+   
+   Architecture:
+   @layer nova-reset      → CSS Reset
+   @layer nova-tokens     → Design Tokens
+   @layer nova-utilities  → Utility Classes
+   @layer nova-components → UI Components
+   
+   Usage:
+   @import "nova-css";
+   
+   Or import individual layers:
+   @import "nova-css/reset";
+   @import "nova-css/tokens";
+   @import "nova-css/utilities";
+   @import "nova-css/components";
+   ============================================ */
+
+@layer nova-reset, nova-tokens, nova-utilities, nova-components;
+
+@import "./reset.css";
+@import "./tokens.css";
+@import "./utilities.css";
+@import "./components.css";
+@import "./border-beam.css";
+
+/* ---- Base Styles ---- */
+@layer nova-base {
+  body {
+    background-color: var(--nova-color-background);
+    color: var(--nova-color-text);
+    font-family: var(--nova-font-sans);
+    font-size: var(--nova-font-base);
+    line-height: var(--nova-leading-normal);
+  }
+
+  h1 { font-size: var(--nova-font-4xl); font-weight: var(--nova-weight-bold); line-height: var(--nova-leading-tight); }
+  h2 { font-size: var(--nova-font-3xl); font-weight: var(--nova-weight-semibold); line-height: var(--nova-leading-tight); }
+  h3 { font-size: var(--nova-font-2xl); font-weight: var(--nova-weight-semibold); line-height: var(--nova-leading-snug); }
+  h4 { font-size: var(--nova-font-xl); font-weight: var(--nova-weight-semibold); line-height: var(--nova-leading-snug); }
+  h5 { font-size: var(--nova-font-lg); font-weight: var(--nova-weight-medium); line-height: var(--nova-leading-normal); }
+  h6 { font-size: var(--nova-font-base); font-weight: var(--nova-weight-medium); line-height: var(--nova-leading-normal); }
+
+  a {
+    color: var(--nova-color-primary);
+    transition: color var(--nova-transition-fast);
+  }
+  a:hover {
+    color: var(--nova-primary-600);
+  }
+
+  code {
+    font-family: var(--nova-font-mono);
+    font-size: 0.875em;
+  }
+
+  ::selection {
+    background-color: color-mix(in srgb, var(--nova-color-primary) 20%, transparent);
+  }
+}

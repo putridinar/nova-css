@@ -1,0 +1,220 @@
+/**
+ * BorderBeam — animated gradient border beam
+ * Inspired by Magic UI / Motion-style effects.
+ * Pure CSS; works with any element.
+ *
+ * Usage:
+ *   <div class="nova-border-beam">
+ *     <div class="nova-border-beam__content">...</div>
+ *   </div>
+ *
+ * Optional modifiers:
+ *   nova-border-beam--sm | --md | --lg   (beam size)
+ *   nova-border-beam--slow | --fast      (duration)
+ *   nova-border-beam--primary | --success | --danger | --rainbow
+ *
+ * @layer components
+ */
+
+@layer nova-components {
+  /* Register custom property for smooth angle animation */
+  @property --nova-beam-angle {
+    syntax: '<angle>';
+    initial-value: 0deg;
+    inherits: false;
+  }
+
+  .nova-border-beam {
+    --nova-beam-size: 120px;
+    --nova-beam-duration: 8s;
+    --nova-beam-color-from: var(--nova-primary-400);
+    --nova-beam-color-to: var(--nova-primary-600);
+    --nova-beam-border-width: 1.5px;
+    --nova-beam-radius: var(--nova-radius-xl);
+
+    position: relative;
+    border-radius: var(--nova-beam-radius);
+    overflow: hidden;
+    isolation: isolate;
+  }
+
+  /* Gradient border mask technique */
+  .nova-border-beam::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: var(--nova-beam-border-width);
+    background: conic-gradient(
+      from var(--nova-beam-angle, 0deg),
+      transparent 0%,
+      transparent 30%,
+      var(--nova-beam-color-from) 40%,
+      var(--nova-beam-color-to) 50%,
+      transparent 60%,
+      transparent 100%
+    );
+    -webkit-mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    animation: nova-border-beam-spin var(--nova-beam-duration) linear infinite;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  /* Soft ambient glow along the beam */
+  .nova-border-beam::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: var(--nova-beam-border-width);
+    background: conic-gradient(
+      from var(--nova-beam-angle, 0deg),
+      transparent 0%,
+      transparent 35%,
+      color-mix(in srgb, var(--nova-beam-color-from) 40%, transparent) 45%,
+      color-mix(in srgb, var(--nova-beam-color-to) 40%, transparent) 50%,
+      transparent 55%,
+      transparent 100%
+    );
+    -webkit-mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    filter: blur(6px);
+    animation: nova-border-beam-spin var(--nova-beam-duration) linear infinite;
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.7;
+  }
+
+  .nova-border-beam__content {
+    position: relative;
+    z-index: 2;
+    border-radius: inherit;
+    background-color: var(--nova-color-surface);
+    /* inset so content sits inside the beam border */
+    margin: var(--nova-beam-border-width);
+    height: calc(100% - var(--nova-beam-border-width) * 2);
+    width: calc(100% - var(--nova-beam-border-width) * 2);
+  }
+
+  /* Static subtle border when reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    .nova-border-beam::before,
+    .nova-border-beam::after {
+      animation: none;
+      background: linear-gradient(
+        135deg,
+        var(--nova-beam-color-from),
+        var(--nova-beam-color-to)
+      );
+    }
+  }
+
+  @keyframes nova-border-beam-spin {
+    from {
+      --nova-beam-angle: 0deg;
+    }
+    to {
+      --nova-beam-angle: 360deg;
+    }
+  }
+
+  /* ---- Size modifiers ---- */
+  .nova-border-beam--sm {
+    --nova-beam-border-width: 1px;
+    --nova-beam-radius: var(--nova-radius-lg);
+  }
+
+  .nova-border-beam--md {
+    --nova-beam-border-width: 1.5px;
+  }
+
+  .nova-border-beam--lg {
+    --nova-beam-border-width: 2px;
+    --nova-beam-radius: var(--nova-radius-2xl);
+  }
+
+  /* ---- Speed ---- */
+  .nova-border-beam--slow {
+    --nova-beam-duration: 14s;
+  }
+
+  .nova-border-beam--fast {
+    --nova-beam-duration: 4s;
+  }
+
+  /* ---- Color themes ---- */
+  .nova-border-beam--primary {
+    --nova-beam-color-from: var(--nova-primary-300);
+    --nova-beam-color-to: var(--nova-primary-600);
+  }
+
+  .nova-border-beam--success {
+    --nova-beam-color-from: var(--nova-success-300);
+    --nova-beam-color-to: var(--nova-success-600);
+  }
+
+  .nova-border-beam--danger {
+    --nova-beam-color-from: var(--nova-danger-300);
+    --nova-beam-color-to: var(--nova-danger-600);
+  }
+
+  .nova-border-beam--warning {
+    --nova-beam-color-from: var(--nova-warning-300);
+    --nova-beam-color-to: var(--nova-warning-600);
+  }
+
+  .nova-border-beam--info {
+    --nova-beam-color-from: var(--nova-info-300);
+    --nova-beam-color-to: var(--nova-info-600);
+  }
+
+  .nova-border-beam--secondary {
+    --nova-beam-color-from: var(--nova-secondary-300);
+    --nova-beam-color-to: var(--nova-secondary-600);
+  }
+
+  .nova-border-beam--rainbow {
+    --nova-beam-color-from: #a855f7;
+    --nova-beam-color-to: #06b6d4;
+  }
+
+  .nova-border-beam--rainbow::before {
+    background: conic-gradient(
+      from var(--nova-beam-angle, 0deg),
+      transparent 0%,
+      transparent 25%,
+      #ec4899 32%,
+      #a855f7 40%,
+      #3b82f6 48%,
+      #06b6d4 56%,
+      #22c55e 64%,
+      transparent 70%,
+      transparent 100%
+    );
+  }
+
+  .nova-border-beam--rainbow::after {
+    background: conic-gradient(
+      from var(--nova-beam-angle, 0deg),
+      transparent 0%,
+      transparent 30%,
+      color-mix(in srgb, #a855f7 35%, transparent) 45%,
+      color-mix(in srgb, #06b6d4 35%, transparent) 55%,
+      transparent 65%,
+      transparent 100%
+    );
+  }
+}

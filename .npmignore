@@ -1,0 +1,59 @@
+# Source files
+src/
+!src/nova/
+
+# Development files
+*.log
+.DS_Store
+.vscode/
+.idea/
+
+# Config files
+.eslintrc*
+.prettierrc*
+tsconfig.json
+vite.config.js
+postcss.config.js
+
+# Test files
+__tests__/
+*.test.js
+*.test.ts
+*.spec.js
+*.spec.ts
+coverage/
+
+# Documentation source
+docs/
+*.md
+!README.md
+!CHANGELOG.md
+!LICENSE
+
+# Examples
+examples/
+playground/
+
+# GitHub
+.github/
+
+# Build scripts (not needed in published package)
+scripts/
+
+# Node modules
+node_modules/
+
+# Git
+.git/
+.gitignore
+
+# Misc
+*.tmp
+*.bak
+*.swp
+*~
+
+QUICKSTART-PUBLISH.md
+PUBLISHING.md
+READMEdev.md
+package.dev.json

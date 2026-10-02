@@ -1,0 +1,10 @@
+node_modules/
+.next/
+dist/
+build/
+*.log
+
+QUICKSTART-PUBLISH.md
+PUBLISHING.md
+READMEdev.md
+package.dev.json

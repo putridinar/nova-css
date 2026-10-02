@@ -1,0 +1,248 @@
+/* ============================================
+   NOVA CSS - Design Tokens Layer
+   CSS Custom Properties for the entire system
+   ============================================ */
+
+@layer nova-tokens {
+  :root {
+    /* ---- Color Palette ---- */
+    --nova-primary-50: #eff6ff;
+    --nova-primary-100: #dbeafe;
+    --nova-primary-200: #bfdbfe;
+    --nova-primary-300: #93c5fd;
+    --nova-primary-400: #60a5fa;
+    --nova-primary-500: #3b82f6;
+    --nova-primary-600: #2563eb;
+    --nova-primary-700: #1d4ed8;
+    --nova-primary-800: #1e40af;
+    --nova-primary-900: #1e3a8a;
+    --nova-primary-950: #172554;
+
+    --nova-secondary-50: #f5f3ff;
+    --nova-secondary-100: #ede9fe;
+    --nova-secondary-200: #ddd6fe;
+    --nova-secondary-300: #c4b5fd;
+    --nova-secondary-400: #a78bfa;
+    --nova-secondary-500: #8b5cf6;
+    --nova-secondary-600: #7c3aed;
+    --nova-secondary-700: #6d28d9;
+    --nova-secondary-800: #5b21b6;
+    --nova-secondary-900: #4c1d95;
+    --nova-secondary-950: #2e1065;
+
+    --nova-success-50: #f0fdf4;
+    --nova-success-100: #dcfce7;
+    --nova-success-200: #bbf7d0;
+    --nova-success-300: #86efac;
+    --nova-success-400: #4ade80;
+    --nova-success-500: #22c55e;
+    --nova-success-600: #16a34a;
+    --nova-success-700: #15803d;
+    --nova-success-800: #166534;
+    --nova-success-900: #14532d;
+    --nova-success-950: #052e16;
+
+    --nova-warning-50: #fffbeb;
+    --nova-warning-100: #fef3c7;
+    --nova-warning-200: #fde68a;
+    --nova-warning-300: #fcd34d;
+    --nova-warning-400: #fbbf24;
+    --nova-warning-500: #f59e0b;
+    --nova-warning-600: #d97706;
+    --nova-warning-700: #b45309;
+    --nova-warning-800: #92400e;
+    --nova-warning-900: #78350f;
+    --nova-warning-950: #451a03;
+
+    --nova-danger-50: #fef2f2;
+    --nova-danger-100: #fee2e2;
+    --nova-danger-200: #fecaca;
+    --nova-danger-300: #fca5a5;
+    --nova-danger-400: #f87171;
+    --nova-danger-500: #ef4444;
+    --nova-danger-600: #dc2626;
+    --nova-danger-700: #b91c1c;
+    --nova-danger-800: #991b1b;
+    --nova-danger-900: #7f1d1d;
+    --nova-danger-950: #450a0a;
+
+    --nova-info-50: #ecfeff;
+    --nova-info-100: #cffafe;
+    --nova-info-200: #a5f3fc;
+    --nova-info-300: #67e8f9;
+    --nova-info-400: #22d3ee;
+    --nova-info-500: #06b6d4;
+    --nova-info-600: #0891b2;
+    --nova-info-700: #0e7490;
+    --nova-info-800: #155e75;
+    --nova-info-900: #164e63;
+    --nova-info-950: #083344;
+
+    --nova-neutral-50: #fafafa;
+    --nova-neutral-100: #f5f5f5;
+    --nova-neutral-200: #e5e5e5;
+    --nova-neutral-300: #d4d4d4;
+    --nova-neutral-400: #a3a3a3;
+    --nova-neutral-500: #737373;
+    --nova-neutral-600: #525252;
+    --nova-neutral-700: #404040;
+    --nova-neutral-800: #262626;
+    --nova-neutral-900: #171717;
+    --nova-neutral-950: #0a0a0a;
+
+    /* ---- Semantic Colors (Light Mode) ---- */
+    --nova-color-primary: var(--nova-primary-500);
+    --nova-color-secondary: var(--nova-secondary-500);
+    --nova-color-success: var(--nova-success-500);
+    --nova-color-warning: var(--nova-warning-500);
+    --nova-color-danger: var(--nova-danger-500);
+    --nova-color-info: var(--nova-info-500);
+    --nova-color-background: #ffffff;
+    --nova-color-surface: #f9fafb;
+    --nova-color-text: var(--nova-neutral-900);
+    --nova-color-muted: var(--nova-neutral-500);
+    --nova-color-border: var(--nova-neutral-200);
+
+    /* ---- Typography ---- */
+    --nova-font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --nova-font-mono: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', monospace;
+    --nova-font-serif: 'Georgia', 'Times New Roman', serif;
+
+    --nova-font-xs: 0.75rem;
+    --nova-font-sm: 0.875rem;
+    --nova-font-base: 1rem;
+    --nova-font-lg: 1.125rem;
+    --nova-font-xl: 1.25rem;
+    --nova-font-2xl: 1.5rem;
+    --nova-font-3xl: 1.875rem;
+    --nova-font-4xl: 2.25rem;
+    --nova-font-5xl: 3rem;
+    --nova-font-6xl: 3.75rem;
+
+    --nova-leading-none: 1;
+    --nova-leading-tight: 1.25;
+    --nova-leading-snug: 1.375;
+    --nova-leading-normal: 1.5;
+    --nova-leading-relaxed: 1.625;
+    --nova-leading-loose: 2;
+
+    --nova-weight-normal: 400;
+    --nova-weight-medium: 500;
+    --nova-weight-semibold: 600;
+    --nova-weight-bold: 700;
+
+    --nova-tracking-tight: -0.025em;
+    --nova-tracking-normal: 0em;
+    --nova-tracking-wide: 0.025em;
+    --nova-tracking-wider: 0.05em;
+
+    /* ---- Spacing ---- */
+    --nova-space-0: 0;
+    --nova-space-px: 1px;
+    --nova-space-0-5: 0.125rem;
+    --nova-space-1: 0.25rem;
+    --nova-space-1-5: 0.375rem;
+    --nova-space-2: 0.5rem;
+    --nova-space-2-5: 0.625rem;
+    --nova-space-3: 0.75rem;
+    --nova-space-4: 1rem;
+    --nova-space-5: 1.25rem;
+    --nova-space-6: 1.5rem;
+    --nova-space-8: 2rem;
+    --nova-space-10: 2.5rem;
+    --nova-space-12: 3rem;
+    --nova-space-16: 4rem;
+    --nova-space-20: 5rem;
+    --nova-space-24: 6rem;
+    --nova-space-32: 8rem;
+    --nova-space-40: 10rem;
+    --nova-space-48: 12rem;
+    --nova-space-64: 16rem;
+
+    /* ---- Border Radius ---- */
+    --nova-radius-none: 0;
+    --nova-radius-sm: 0.125rem;
+    --nova-radius-md: 0.375rem;
+    --nova-radius-lg: 0.5rem;
+    --nova-radius-xl: 0.75rem;
+    --nova-radius-2xl: 1rem;
+    --nova-radius-3xl: 1.5rem;
+    --nova-radius-full: 9999px;
+
+    /* ---- Shadows ---- */
+    --nova-shadow-xs: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+    --nova-shadow-sm: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+    --nova-shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    --nova-shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    --nova-shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+    --nova-shadow-2xl: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+    --nova-shadow-inner: inset 0 2px 4px 0 rgb(0 0 0 / 0.05);
+
+    /* ---- Transitions ---- */
+    --nova-transition-fast: 150ms;
+    --nova-transition-normal: 250ms;
+    --nova-transition-slow: 350ms;
+    --nova-transition-ease: cubic-bezier(0.4, 0, 0.2, 1);
+
+    /* ---- Z-Index ---- */
+    --nova-z-dropdown: 1000;
+    --nova-z-sticky: 1020;
+    --nova-z-fixed: 1030;
+    --nova-z-modal-backdrop: 1040;
+    --nova-z-modal: 1050;
+    --nova-z-popover: 1060;
+    --nova-z-tooltip: 1070;
+    --nova-z-toast: 1080;
+
+    /* ---- Breakpoints (for reference, used in media queries) ---- */
+    --nova-bp-sm: 640px;
+    --nova-bp-md: 768px;
+    --nova-bp-lg: 1024px;
+    --nova-bp-xl: 1280px;
+    --nova-bp-2xl: 1536px;
+
+    /* ---- Container ---- */
+    --nova-container-sm: 640px;
+    --nova-container-md: 768px;
+    --nova-container-lg: 1024px;
+    --nova-container-xl: 1280px;
+    --nova-container-2xl: 1536px;
+  }
+
+  /* ---- Dark Mode Tokens ---- */
+  [data-theme="dark"] {
+    --nova-color-primary: var(--nova-primary-400);
+    --nova-color-secondary: var(--nova-secondary-400);
+    --nova-color-success: var(--nova-success-400);
+    --nova-color-warning: var(--nova-warning-400);
+    --nova-color-danger: var(--nova-danger-400);
+    --nova-color-info: var(--nova-info-400);
+    --nova-color-background: var(--nova-neutral-950);
+    --nova-color-surface: var(--nova-neutral-900);
+    --nova-color-text: var(--nova-neutral-50);
+    --nova-color-muted: var(--nova-neutral-400);
+    --nova-color-border: var(--nova-neutral-700);
+
+    --nova-shadow-xs: 0 1px 2px 0 rgb(0 0 0 / 0.3);
+    --nova-shadow-sm: 0 1px 3px 0 rgb(0 0 0 / 0.4), 0 1px 2px -1px rgb(0 0 0 / 0.4);
+    --nova-shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.4), 0 2px 4px -2px rgb(0 0 0 / 0.4);
+    --nova-shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.4), 0 4px 6px -4px rgb(0 0 0 / 0.4);
+    --nova-shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.4), 0 8px 10px -6px rgb(0 0 0 / 0.4);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    [data-theme="system"] {
+      --nova-color-primary: var(--nova-primary-400);
+      --nova-color-secondary: var(--nova-secondary-400);
+      --nova-color-success: var(--nova-success-400);
+      --nova-color-warning: var(--nova-warning-400);
+      --nova-color-danger: var(--nova-danger-400);
+      --nova-color-info: var(--nova-info-400);
+      --nova-color-background: var(--nova-neutral-950);
+      --nova-color-surface: var(--nova-neutral-900);
+      --nova-color-text: var(--nova-neutral-50);
+      --nova-color-muted: var(--nova-neutral-400);
+      --nova-color-border: var(--nova-neutral-700);
+    }
+  }
+}

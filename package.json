@@ -1,0 +1,100 @@
+{
+  "name": "nova-css",
+  "version": "1.0.0",
+  "description": "Modern, lightweight, utility-first CSS framework with design tokens, accessible components, and dark mode",
+  "type": "module",
+  "main": "dist/index.css",
+  "module": "dist/index.css",
+  "types": "dist/types.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.css",
+      "require": "./dist/index.css",
+      "types": "./dist/types.d.ts"
+    },
+    "./reset": "./dist/reset.css",
+    "./tokens": "./dist/tokens.css",
+    "./utilities": "./dist/utilities.css",
+    "./components": "./dist/components.css",
+    "./border-beam": "./dist/border-beam.css",
+    "./react": {
+      "import": "./dist/react/index.js",
+      "types": "./dist/react/index.d.ts"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE",
+    "CHANGELOG.md"
+  ],
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "build:framework": "node scripts/build-framework.js",
+    "build:all": "npm run build && npm run build:framework",
+    "typecheck": "tsc --noEmit",
+    "prepublishOnly": "npm run build:framework",
+    "publish:dry": "npm publish --dry-run"
+  },
+  "keywords": [
+    "css",
+    "css-framework",
+    "utility-first",
+    "design-system",
+    "design-tokens",
+    "components",
+    "responsive",
+    "dark-mode",
+    "accessible",
+    "modern-css",
+    "tailwind-alternative",
+    "bootstrap-alternative",
+    "react-components",
+    "border-beam",
+    "magic-ui"
+  ],
+  "author": "putridinar1990@gmail.com",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/putridinar/nova-css.git"
+  },
+  "homepage": "https://my-novacss.vercel.app",
+  "bugs": {
+    "url": "https://github.com/putridinar/nova-css/issues"
+  },
+  "dependencies": {
+    "lucide-react": "^0.294.0"
+  },
+  "peerDependencies": {
+    "react": ">=17.0.0",
+    "react-dom": ">=17.0.0"
+  },
+  "peerDependenciesMeta": {
+    "react": {
+      "optional": true
+    },
+    "react-dom": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.0",
+    "@types/react-dom": "^18.2.0",
+    "@vitejs/plugin-react": "^4.3.4",
+    "autoprefixer": "^10.4.16",
+    "cssnano": "^6.0.2",
+    "postcss": "^8.4.32",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "typescript": "^5.7.0",
+    "vite": "^6.3.5"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "sideEffects": [
+    "*.css"
+  ]
+}

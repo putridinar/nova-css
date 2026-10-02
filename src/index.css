@@ -1,0 +1,32 @@
+@import "tailwindcss";
+@import "./nova/index.css";
+
+/* Documentation site specific styles */
+.space-y-2 > * + * { margin-block-start: 0.5rem; }
+.space-y-3 > * + * { margin-block-start: 0.75rem; }
+.space-y-4 > * + * { margin-block-start: 1rem; }
+
+/* Smooth scroll */
+html { scroll-behavior: smooth; }
+
+/* Custom scrollbar for dark code blocks */
+.nova-code-block::-webkit-scrollbar {
+  height: 6px;
+}
+.nova-code-block::-webkit-scrollbar-track {
+  background: transparent;
+}
+.nova-code-block::-webkit-scrollbar-thumb {
+  background: var(--nova-neutral-600);
+  border-radius: 3px;
+}
+
+/* Mobile offcanvas slide animation */
+@keyframes nova-slide-right {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
